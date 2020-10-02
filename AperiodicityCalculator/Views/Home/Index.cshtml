@@ -1,0 +1,152 @@
+﻿@model AperiodicityCalculator.Models.Information
+
+@{
+        ViewData["Title"] = "AperiodicityCalculator";
+}
+
+@*<div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+
+<div class="container">
+    <div class="text-center">
+        <h4>Aperiodicity Calculator 切期計算機</h4>
+        <hr />
+    </div>
+</div>
+
+<body class="container-fluid">
+    <div class="text-left">
+        <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Index">
+
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <div class="form-group">
+
+                <div class="row">
+                    <label class="col-3 text-right">@Html.DisplayNameFor(model => model.BillingType) :</label>
+
+                    <div class="col-2">
+                        <div class="radio">
+                            <input type="radio" name="BillingType" asp-for="BillingType" value="Annually" checked /> Annually 年繳
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        <div class="radio">
+                            <input type="radio" name="BillingType" asp-for="BillingType" value="Monthly" /> Monthly 月繳
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+
+                    <label class="col-3 text-right">@Html.DisplayNameFor(model => model.StartDate) :</label>
+
+                    <div class="col-2">
+                        <input type="date" id="startDate" asp-for="StartDate" />
+                        <span style="color:red;" asp-validation-for="StartDate"></span>
+                    </div>
+
+                    <label class="col-3 text-right">@Html.DisplayNameFor(model => model.EndDate) :</label>
+
+                    <div class="col-2">
+                        <input type="date" id="endDate" asp-for="EndDate" />
+                        <span style="color:red;" asp-validation-for="EndDate"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <div class="row">
+                    <label class="col-3 text-right">@Html.DisplayNameFor(model => model.RenewDate) :</label>
+
+                    <div class="col-2">
+                        <input type="date" id="renewDate" asp-for="RenewDate" />
+                        <span style="color:red;" asp-validation-for="RenewDate" data-valmsg-></span>
+                    </div>
+
+                    <label class="col-3 text-right">@Html.DisplayNameFor(model => model.SellingPrice) :</label>
+
+                    <div class="col-2">
+                        <input type="number" step="0.01" id="sellingPrice" asp-for="SellingPrice" />
+                        <span style="color:red;" asp-validation-for="SellingPrice"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <input type="submit" value="OK" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+        </form>
+
+        <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Index">
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-3 text-right">@Html.DisplayNameFor(model => model.BillingType) :</label>
+                    <div class="col-3">
+                        @Html.DisplayFor(model => model.BillingType)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-3 text-right">@Html.DisplayNameFor(model => model.StartDate) :</label>
+                    <div class="col-3">@Html.DisplayFor(model => model.StartDate)</div>
+
+                    <label class="col-3 text-right">@Html.DisplayNameFor(model => model.EndDate) :</label>
+                    <div class="col-3">@Html.DisplayFor(model => model.EndDate)
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-3 text-right">@Html.DisplayNameFor(model => model.RenewDate) :</label>
+                    <div class="col-3 text-left">@Html.DisplayFor(model => model.RenewDate)
+                    </div>
+
+                    <label class="col-3 text-right">@Html.DisplayNameFor(model => model.ChargeDays) :</label>
+                    <div class="col-3 text-left">@Html.DisplayFor(model => model.ChargeDays)</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-3 text-right">@Html.DisplayNameFor(model => model.SellingPrice) :</label>
+                    <div class="col-3 text-left">@Html.DisplayFor(model => model.SellingPrice)</div>
+
+                    <label class="col-3 text-right">@Html.DisplayNameFor(model => model.SellingUnit) :</label>
+                    <div class="col-3 text-left">@Html.DisplayFor(model => model.SellingUnit)</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-3 text-right">@Html.DisplayNameFor(model => model.TotalDays) :</label>
+                    <div class="col-3 text-left">@Html.DisplayFor(model => model.TotalDays)</div>
+
+                    <label class="col-3 text-right">@Html.DisplayNameFor(model => model.TotalSellingUnit) :</label>
+                    <div class="col-3 text-left">@Html.DisplayFor(model => model.TotalSellingUnit)</div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
